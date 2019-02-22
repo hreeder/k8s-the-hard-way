@@ -7,3 +7,7 @@ terraform {
     bucket = "hreeder-k8s-hard-way-state"
   }
 }
+
+module "network" {
+  source = "./network"
+}
