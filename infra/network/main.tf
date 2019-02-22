@@ -9,7 +9,8 @@ resource "google_compute_subnetwork" "self" {
 }
 
 resource "google_compute_firewall" "internal" {
-  name = "kubernetes-the-hard-way-allow-internal"
+  name    = "kubernetes-the-hard-way-allow-internal"
+  network = "${google_compute_network.self.name}"
 
   allow {
     protocol = "tcp"
@@ -30,7 +31,8 @@ resource "google_compute_firewall" "internal" {
 }
 
 resource "google_compute_firewall" "external" {
-  name = "kubernetes-the-hard-way-allow-external"
+  name    = "kubernetes-the-hard-way-allow-external"
+  network = "${google_compute_network.self.name}"
 
   allow {
     protocol = "tcp"
