@@ -14,7 +14,7 @@ action "terraform-init" {
   secrets = ["GITHUB_TOKEN", "GOOGLE_CREDENTIALS"]
 
   env = {
-    TF_ACTION_WORKING_DIR = "."
+    TF_ACTION_WORKING_DIR = "infra"
   }
 }
 
@@ -24,7 +24,7 @@ action "terraform-validate" {
   secrets = ["GITHUB_TOKEN", "GOOGLE_CREDENTIALS"]
 
   env = {
-    TF_ACTION_WORKING_DIR = "."
+    TF_ACTION_WORKING_DIR = "infra"
   }
 }
 
@@ -35,7 +35,7 @@ action "terraform-plan" {
 
   env = {
     TF_ACTION_COMMENT     = "false"
-    TF_ACTION_WORKING_DIR = "."
+    TF_ACTION_WORKING_DIR = "infra"
   }
 }
 
@@ -45,6 +45,6 @@ action "terraform-apply" {
   secrets = ["GITHUB_TOKEN", "GOOGLE_CREDENTIALS"]
 
   env = {
-    TF_ACTION_WORKING_DIR = "."
+    TF_ACTION_WORKING_DIR = "infra"
   }
 }
