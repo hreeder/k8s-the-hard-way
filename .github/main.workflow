@@ -34,12 +34,13 @@ action "terraform-plan" {
   secrets = ["GITHUB_TOKEN", "GOOGLE_CREDENTIALS"]
 
   env = {
+    TF_ACTION_COMMENT     = "false"
     TF_ACTION_WORKING_DIR = "."
   }
 }
 
 action "terraform-apply" {
-  uses    = "hreeder/terraform-github-actions-apply@master"
+  uses    = "hreeder/terraform-github-actions/apply@master"
   needs   = "terraform-plan"
   secrets = ["GITHUB_TOKEN", "GOOGLE_CREDENTIALS"]
 
