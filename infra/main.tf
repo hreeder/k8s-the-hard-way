@@ -1,5 +1,6 @@
 provider "google" {
   project = "${var.gcp_project}"
+  zone    = "${var.zone}"
 }
 
 terraform {
