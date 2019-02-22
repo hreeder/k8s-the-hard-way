@@ -37,3 +37,13 @@ action "terraform-plan" {
     TF_ACTION_WORKING_DIR = "."
   }
 }
+
+action "terraform-apply" {
+  uses    = "hreeder/terraform-github-actions-apply"
+  needs   = "terraform-plan"
+  secrets = ["GITHUB_TOKEN", "GOOGLE_CREDENTIALS"]
+
+  env = {
+    TF_ACTION_WORKING_DIR = "."
+  }
+}
