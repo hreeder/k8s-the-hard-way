@@ -1,6 +1,6 @@
 workflow "Deploy on Push to Master" {
   on       = "push"
-  resolves = ["terraform-plan"]
+  resolves = ["terraform-apply"]
 }
 
 action "only-master-branch" {
@@ -39,7 +39,7 @@ action "terraform-plan" {
 }
 
 action "terraform-apply" {
-  uses    = "hreeder/terraform-github-actions-apply"
+  uses    = "hreeder/terraform-github-actions-apply@master"
   needs   = "terraform-plan"
   secrets = ["GITHUB_TOKEN", "GOOGLE_CREDENTIALS"]
 
