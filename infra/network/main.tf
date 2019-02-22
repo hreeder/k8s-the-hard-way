@@ -48,6 +48,5 @@ resource "google_compute_firewall" "external" {
 }
 
 resource "google_compute_address" "public" {
-  name   = "kubernetes-the-hard-way"
-  region = "${var.region}"
+  name = "kubernetes-the-hard-way"
 }

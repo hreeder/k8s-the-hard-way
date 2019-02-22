@@ -11,6 +11,12 @@ terraform {
 
 module "network" {
   source = "./network"
+}
 
-  region = "${var.region}"
+module "compute" {
+  source = "./compute"
+
+  controllers = "3"
+  workers     = "3"
+  subnet      = "${module.network.subnet_name}"
 }
