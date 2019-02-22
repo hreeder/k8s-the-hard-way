@@ -6,6 +6,7 @@ resource "google_compute_network" "self" {
 resource "google_compute_subnetwork" "self" {
   name          = "kubernetes"
   ip_cidr_range = "10.240.0.0/24"
+  network       = "${google_compute_network.self.name}"
 }
 
 resource "google_compute_firewall" "internal" {
